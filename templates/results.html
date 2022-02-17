@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Semantic Text Similarity Ranking Application</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+
+<body>
+    <h1>Results</h1>
+    <h2>MiniLM-L6-v2 model (semantic):</h2>
+    {% for table in tables[0] %}
+    {{titles[loop.index]}}
+    {{ table|safe }}
+    {% endfor %}
+    <h2>Tf-idf model (frequency of words):</h2>
+    {% for table in tables[1] %}
+    {{titles[loop.index]}}
+    {{ table|safe }}
+    {% endfor %}
+</body>
+
+</html>

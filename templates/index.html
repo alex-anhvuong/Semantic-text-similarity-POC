@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Semantic Text Similarity Ranking Application</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+
+<body>
+    <h1>Upload news/documents database</h1>
+    <form method="POST" action="" enctype="multipart/form-data">
+        <p><input type="file" name="file"></p>
+        <p><input type="submit" value="Submit" name="file-upload"></p>
+    </form>
+    {% for table in tables %}
+    {{titles[loop.index]}}
+    {{ table|safe }}
+    {% endfor %}
+    <h1>I want to find similar documents to this document:</h1>
+    <form method="POST">
+        <input name="text">
+        <input type="submit" value="Submit Text" name="text-input">
+    </form>
+    <p>The text: {{ text }}</p>
+    <h1>Run Analysis:</h1>
+    <a href="/results"><input style="height:100px;width:200px" type="button" value="GO"></a>
+</body>
+
+</html>
